@@ -19,11 +19,13 @@ namespace SMSystem.Application.Features.Commands.Sales.CreateSale
         public async Task<CreateSaleCommandResponse> Handle(CreateSaleCommandRequest request, CancellationToken cancellationToken)
         {
             var sale = _mapper.Map<CreateSaleCommandRequest, Sale>(request);
-            var status = await _saleWriteRepository.AddAsync(sale);
-
+            await _saleWriteRepository.AddAsync(sale);
+            var status = await _saleWriteRepository.SaveAsync();
             // TODO : Satış kuralları işlenecek.
 
-            return new CreateSaleCommandResponse().Success();
+            return status > 0 ?
+                new CreateSaleCommandResponse().Success() :
+                new CreateSaleCommandResponse().Error();
         }
     }
 }

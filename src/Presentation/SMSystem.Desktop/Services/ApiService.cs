@@ -67,6 +67,12 @@ namespace SMSystem.Desktop.Services
                         MessageBoxShow.Error(errorMessage);
                         return default;
                     }
+                    if (errorContent.Contains("not authenticated"))
+                    {
+                        var errorMessage = "Yetkiniz bulunmuyor. Lütfen yeniden oturum açýnýz.";
+                        MessageBoxShow.Error(errorMessage);
+                        return default;
+                    }
                     var responseContent = JsonSerializer.Deserialize<T>(errorContent, _jsonSerializerOptions);
 
                     if (responseContent is AuthResponse authResponse && !authResponse.IsSuccess)

@@ -29,9 +29,7 @@ namespace SMSystem.Desktop.Forms
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
-        {           
-            panel1 = new Panel();
-            lblTitle = new Label();
+        {
             groupBoxSaleDetails = new GroupBox();
             numericQuantity = new NumericUpDown();
             numericPrice = new NumericUpDown();
@@ -45,33 +43,11 @@ namespace SMSystem.Desktop.Forms
             btnListSales = new Button();
             btnEdit = new Button();
             btnNewSale = new Button();
-            panel1.SuspendLayout();
             groupBoxSaleDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericQuantity).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericPrice).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewSales).BeginInit();
+            ((ISupportInitialize)numericQuantity).BeginInit();
+            ((ISupportInitialize)numericPrice).BeginInit();
+            ((ISupportInitialize)dataGridViewSales).BeginInit();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
-            panel1.Controls.Add(lblTitle);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(875, 60);
-            panel1.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(12, 18);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(129, 25);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "Satış Yönetimi";
             // 
             // groupBoxSaleDetails
             // 
@@ -83,7 +59,7 @@ namespace SMSystem.Desktop.Forms
             groupBoxSaleDetails.Controls.Add(lblProduct);
             groupBoxSaleDetails.Controls.Add(btnClear);
             groupBoxSaleDetails.Controls.Add(btnSave);
-            groupBoxSaleDetails.Location = new Point(12, 66);
+            groupBoxSaleDetails.Location = new Point(12, 12);
             groupBoxSaleDetails.Name = "groupBoxSaleDetails";
             groupBoxSaleDetails.Size = new Size(851, 120);
             groupBoxSaleDetails.TabIndex = 1;
@@ -103,7 +79,7 @@ namespace SMSystem.Desktop.Forms
             // 
             numericPrice.DecimalPlaces = 2;
             numericPrice.Location = new Point(320, 51);
-            numericPrice.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+            numericPrice.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericPrice.Name = "numericPrice";
             numericPrice.Size = new Size(120, 23);
             numericPrice.TabIndex = 6;
@@ -147,10 +123,8 @@ namespace SMSystem.Desktop.Forms
             // 
             // btnClear
             // 
-            btnClear.BackColor = Color.FromArgb(220, 53, 69);
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.ForeColor = Color.White;
             btnClear.Location = new Point(680, 80);
+            btnClear.Margin = new Padding(3, 2, 3, 2);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(75, 30);
             btnClear.TabIndex = 1;
@@ -160,10 +134,8 @@ namespace SMSystem.Desktop.Forms
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.FromArgb(40, 167, 69);
-            btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.ForeColor = Color.White;
             btnSave.Location = new Point(770, 80);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(75, 30);
             btnSave.TabIndex = 0;
@@ -178,11 +150,10 @@ namespace SMSystem.Desktop.Forms
             dataGridViewSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewSales.BackgroundColor = SystemColors.Control;
             dataGridViewSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewSales.Location = new Point(12, 228);
+            dataGridViewSales.Location = new Point(12, 172);
             dataGridViewSales.MultiSelect = false;
             dataGridViewSales.Name = "dataGridViewSales";
             dataGridViewSales.ReadOnly = true;
-            dataGridViewSales.RowTemplate.Height = 25;
             dataGridViewSales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewSales.Size = new Size(851, 250);
             dataGridViewSales.TabIndex = 2;
@@ -190,10 +161,8 @@ namespace SMSystem.Desktop.Forms
             // 
             // btnListSales
             // 
-            btnListSales.BackColor = Color.FromArgb(23, 162, 184);
-            btnListSales.FlatStyle = FlatStyle.Flat;
-            btnListSales.ForeColor = Color.White;
-            btnListSales.Location = new Point(788, 192);
+            btnListSales.Location = new Point(789, 137);
+            btnListSales.Margin = new Padding(3, 2, 3, 2);
             btnListSales.Name = "btnListSales";
             btnListSales.Size = new Size(75, 30);
             btnListSales.TabIndex = 3;
@@ -203,10 +172,8 @@ namespace SMSystem.Desktop.Forms
             // 
             // btnEdit
             // 
-            btnEdit.BackColor = Color.FromArgb(255, 193, 7);
-            btnEdit.FlatStyle = FlatStyle.Flat;
-            btnEdit.ForeColor = Color.White;
-            btnEdit.Location = new Point(707, 192);
+            btnEdit.Location = new Point(708, 137);
+            btnEdit.Margin = new Padding(3, 2, 3, 2);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(75, 30);
             btnEdit.TabIndex = 4;
@@ -216,10 +183,8 @@ namespace SMSystem.Desktop.Forms
             // 
             // btnNewSale
             // 
-            btnNewSale.BackColor = Color.FromArgb(0, 123, 255);
-            btnNewSale.FlatStyle = FlatStyle.Flat;
-            btnNewSale.ForeColor = Color.White;
-            btnNewSale.Location = new Point(626, 192);
+            btnNewSale.Location = new Point(627, 137);
+            btnNewSale.Margin = new Padding(3, 2, 3, 2);
             btnNewSale.Name = "btnNewSale";
             btnNewSale.Size = new Size(75, 30);
             btnNewSale.TabIndex = 5;
@@ -231,31 +196,25 @@ namespace SMSystem.Desktop.Forms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(875, 490);
+            ClientSize = new Size(875, 436);
             Controls.Add(btnNewSale);
             Controls.Add(btnEdit);
             Controls.Add(btnListSales);
             Controls.Add(dataGridViewSales);
             Controls.Add(groupBoxSaleDetails);
-            Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "SaleForm";
             Text = "Satış Yönetimi";
             Load += SaleForm_Load;
-            panel1.ResumeLayout(false);
             groupBoxSaleDetails.ResumeLayout(false);
             groupBoxSaleDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericQuantity).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericPrice).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewSales).EndInit();
+            ((ISupportInitialize)numericQuantity).EndInit();
+            ((ISupportInitialize)numericPrice).EndInit();
+            ((ISupportInitialize)dataGridViewSales).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.GroupBox groupBoxSaleDetails;
         private System.Windows.Forms.NumericUpDown numericQuantity;
         private System.Windows.Forms.NumericUpDown numericPrice;

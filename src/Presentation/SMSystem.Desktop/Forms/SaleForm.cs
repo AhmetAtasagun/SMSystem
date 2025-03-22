@@ -17,19 +17,17 @@ namespace SMSystem.Desktop.Forms
     {
         private readonly IProductService _productService;
         private readonly ISaleService _saleService;
-        private readonly IAuthService _authService;
-        
+
         private List<ProductDto> _products = new List<ProductDto>();
         private List<SaleDto> _sales = new List<SaleDto>();
         private int? _selectedSaleId = null;
         private bool _isEditMode = false;
 
-        public SaleForm(IProductService productService, ISaleService saleService, IAuthService authService)
+        public SaleForm(IProductService productService, ISaleService saleService)
         {
             InitializeComponent();
             _productService = productService;
             _saleService = saleService;
-            _authService = authService;            
         }
 
         private void SaleForm_Load(object sender, EventArgs e)
@@ -44,7 +42,7 @@ namespace SMSystem.Desktop.Forms
             try
             {
                 _products = await _productService.GetAllProductsAsync();
-                
+
                 comboBoxProducts.DataSource = null;
                 comboBoxProducts.DisplayMember = "Name";
                 comboBoxProducts.ValueMember = "Id";
@@ -61,10 +59,10 @@ namespace SMSystem.Desktop.Forms
             try
             {
                 _sales = await _saleService.GetAllAsync();
-                
+
                 dataGridViewSales.DataSource = null;
                 dataGridViewSales.DataSource = _sales;
-                
+
                 // Configure columns
                 if (dataGridViewSales.Columns.Count > 0)
                 {
@@ -172,17 +170,17 @@ namespace SMSystem.Desktop.Forms
                 if (sale != null)
                 {
                     _selectedSaleId = sale.Id;
-                    
+
                     // Find the product in the combobox
                     var productIndex = _products.FindIndex(p => p.Name == sale.ProductName);
                     if (productIndex >= 0)
                     {
                         comboBoxProducts.SelectedIndex = productIndex;
                     }
-                    
+
                     numericPrice.Value = sale.Price;
                     numericQuantity.Value = sale.Quantity;
-                    
+
                     SetFormState(true);
                 }
             }

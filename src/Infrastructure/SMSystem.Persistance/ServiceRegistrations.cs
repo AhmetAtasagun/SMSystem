@@ -28,7 +28,7 @@ namespace SMSystem.Persistance
             services.AddDbContext<SMSDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("SMSDbConnection"), b => b.MigrationsAssembly("SMSystem.Persistance"));
-            }, ServiceLifetime.Singleton);
+            }, ServiceLifetime.Scoped);
 
             // Identity yapılandırması
             services.AddIdentity<ApplicationUser, IdentityRole<int>>(options =>
@@ -43,20 +43,20 @@ namespace SMSystem.Persistance
             .AddEntityFrameworkStores<SMSDbContext>()
             .AddDefaultTokenProviders();
 
-            services.AddSingleton<ICategoryReadRepository, CategoryReadRepository>();
-            services.AddSingleton<ICategoryWriteRepository, CategoryWriteRepository>();
-            services.AddSingleton<IProductReadRepository, ProductReadRepository>();
-            services.AddSingleton<IProductWriteRepository, ProductWriteRepository>();
-            services.AddSingleton<ISaleReadRepository, SaleReadRepository>();
-            services.AddSingleton<ISaleWriteRepository, SaleWriteRepository>();
-            services.AddSingleton<IInventoryReadRepository, InventoryReadRepository>();
-            services.AddSingleton<IInventoryWriteRepository, InventoryWriteRepository>();
-            services.AddSingleton<IUserReadRepository, UserReadRepository>();
-            services.AddSingleton<IUserWriteRepository, UserWriteRepository>();
-            services.AddSingleton<ILocalizationReadRepository, LocalizationReadRepository>();
-            services.AddSingleton<ILocalizationWriteRepository, LocalizationWriteRepository>();
-            services.AddSingleton<IRefreshTokenReadRepository, RefreshTokenReadRepository>();
-            services.AddSingleton<IRefreshTokenWriteRepository, RefreshTokenWriteRepository>();
+            services.AddScoped<ICategoryReadRepository, CategoryReadRepository>();
+            services.AddScoped<ICategoryWriteRepository, CategoryWriteRepository>();
+            services.AddScoped<IProductReadRepository, ProductReadRepository>();
+            services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
+            services.AddScoped<ISaleReadRepository, SaleReadRepository>();
+            services.AddScoped<ISaleWriteRepository, SaleWriteRepository>();
+            services.AddScoped<IInventoryReadRepository, InventoryReadRepository>();
+            services.AddScoped<IInventoryWriteRepository, InventoryWriteRepository>();
+            services.AddScoped<IUserReadRepository, UserReadRepository>();
+            services.AddScoped<IUserWriteRepository, UserWriteRepository>();
+            services.AddScoped<ILocalizationReadRepository, LocalizationReadRepository>();
+            services.AddScoped<ILocalizationWriteRepository, LocalizationWriteRepository>();
+            services.AddScoped<IRefreshTokenReadRepository, RefreshTokenReadRepository>();
+            services.AddScoped<IRefreshTokenWriteRepository, RefreshTokenWriteRepository>();
         }
     }
 }

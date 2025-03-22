@@ -27,7 +27,7 @@ namespace SMSystem.Desktop.Services
                 if (!string.IsNullOrEmpty(searchText))
                     queryString += $"&saleSearch={searchText}";
 
-                var response = await _apiService.GetAsync<ResultData<List<SaleDto>>>($"sales{queryString}");
+                var response = await _apiService.GetAsync<ResultData<List<SaleDto>>>($"sales{queryString}", _authService.GetToken());
                 if (response == null)
                     return new List<SaleDto>();
 
@@ -44,7 +44,7 @@ namespace SMSystem.Desktop.Services
         {
             try
             {
-                var response = await _apiService.GetAsync<ResultData<SaleDto>>($"sales/{id}");
+                var response = await _apiService.GetAsync<ResultData<SaleDto>>($"sales/{id}", _authService.GetToken());
                 if (response == null)
                     return null;
 
@@ -69,7 +69,7 @@ namespace SMSystem.Desktop.Services
                     // StaffId is now handled by the API automatically
                 };
 
-                var response = await _apiService.PostAsync<Result>("sales", saleModel);
+                var response = await _apiService.PostAsync<Result>("sales", saleModel, _authService.GetToken());
                 if (response == null)
                     return false;
 
@@ -103,7 +103,7 @@ namespace SMSystem.Desktop.Services
                     // StaffId is now handled by the API automatically
                 };
 
-                var response = await _apiService.PutAsync<Result>($"sales/{id}", saleModel);
+                var response = await _apiService.PutAsync<Result>($"sales/{id}", saleModel, _authService.GetToken());
                 if (response == null)
                     return false;
 

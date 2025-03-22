@@ -16,7 +16,7 @@ namespace SMSystem.Infrastructure
         public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IMemoryCache, MemoryCache>();
-            services.AddSingleton<ILocalizationService, DbLocalizationService>();
+            services.AddScoped<ILocalizationService, DbLocalizationService>();
             services.AddScoped<IFileService, LocalFileService>();
             services.AddScoped<IJwtService, JwtService>();
             services.AddHttpContextAccessor();

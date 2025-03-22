@@ -11,7 +11,7 @@ export default function Home() {
           <Link href="/login" className="btn btn-primary w-full block">
             Giriş Yap
           </Link>
-          <div className="flex space-x-4">
+          {/* <div className="flex space-x-4">
             <Link href="/products" className="btn btn-secondary flex-1">
               Ürünler
             </Link>
@@ -21,7 +21,7 @@ export default function Home() {
             <Link href="/sales" className="btn btn-secondary flex-1">
               Satışlar
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
